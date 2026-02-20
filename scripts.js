@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 	const menu = document.getElementById('menu');
 	const menuBtn = document.getElementById('menu-btn');
 
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-	menu.addEventListener('click', toggleMenu);
+	menuBtn.addEventListener('click', toggleMenu);
 });
 
 document.getElementById('contact-form').addEventListener('submit', function (event) {
