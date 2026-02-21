@@ -30,7 +30,7 @@
 					<img src="assets/xmark.svg" alt="" aria-hidden="true" class="menu-icon-close" />
 				</button>
 				<nav id="menu" class="navigation" style="display: none;">
-					<ul class="navigation-list">
+					<ul>
 						<li><a href="#">Home</a></li>
 						<li><a href="#">About</a></li>
 						<li><a href="#">Contact</a></li>
@@ -51,7 +51,17 @@
 						</div>
 					</div>
 					<div>
-						<img src="assets/image@2x.jpg">
+						<picture>
+							<source
+								srcset="assets/image-mobile.jpg 720w, assets/image.jpg 1200w, assets/image@2x.jpg 2400w"
+								sizes="(max-width: 950px) 100vw, 50vw"
+							/>
+							<img
+								src="assets/image.jpg"
+								alt="image"
+								loading="lazy"
+							/>
+						</picture>
 					</div>
 				</div>
 			</section>
@@ -78,8 +88,10 @@
 		</main>
 
 		<footer>
-			<p>Copyright 2026 - DynamiX</p>
-			<a href="#" id="back-to-top">Back to Top</a>
+			<p>©2026 - DynamiX</p>
+			<a href="#top" id="back-to-top" aria-label="Back to top">
+				<img src="assets/arrow-up.svg" alt="Arrow up" aria-hidden="true" />
+			</a>
 		</footer>
 	</body>
 </html>
