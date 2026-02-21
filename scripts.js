@@ -5,8 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	function toggleMenu() {
 		if (menu.style.display === "none") {
 			menu.style.display = "block";
+			menu.classList.add('visible');
+			menu
 		} else {
 			menu.style.display = "none";
+			menu.classList.remove('visible');
 		}
 	}
 
