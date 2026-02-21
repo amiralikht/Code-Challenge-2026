@@ -341,6 +341,9 @@ footer a.visible {
 	}
 }
 @media screen and (max-width: 950px){
+	header {
+		padding-inline: 1em;
+	}
 	header #menu{
 		position: absolute;
 		top: 100%;
