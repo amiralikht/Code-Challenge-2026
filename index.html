@@ -26,10 +26,10 @@
 					</picture>
 				</a>
 				<button id="menu-btn" class="menu-btn">
-					<img src="assets/bars.svg" alt="Menu Icon" >
-					<img src="assets/xmark.svg" alt="" aria-hidden="true" class="menu-icon-close" />
+					<img id="menu-btn-image" src="assets/bars.svg" alt="open menu icon" aria-hidden="true" class="menu-icon-open">
+					<img src="assets/xmark.svg" alt="close menu icon" aria-hidden="true" class="menu-icon-close" />
 				</button>
-				<nav id="menu" class="navigation" style="display: none;">
+				<nav id="menu" class="navigation">
 					<ul>
 						<li><a href="#">Home</a></li>
 						<li><a href="#">About</a></li>
@@ -53,13 +53,20 @@
 					<div>
 						<picture>
 							<source
-								srcset="assets/image-mobile.jpg 720w, assets/image.jpg 1200w, assets/image@2x.jpg 2400w"
+								srcset="
+								assets/image-mobile.jpg 720w,
+								assets/image.jpg 1200w,
+								assets/image@2x.jpg 2400w
+								"
 								sizes="(max-width: 950px) 100vw, 50vw"
 							/>
 							<img
 								src="assets/image.jpg"
-								alt="image"
+								alt="Example image"
+								width="1200"
+								height="800"
 								loading="lazy"
+								decoding="async"
 							/>
 						</picture>
 					</div>
@@ -79,7 +86,7 @@
 						<label for="email">Email</label>
 						<input type="email" id="email" name="email" required placeholder="Email" />
 
-						<p id="form-status" class="form-status" role="status" aria-live="polite" style="display: none;"></p>
+						<p id="form-status" class="form-status" role="status"></p>
 						
 						<button type="submit">Submit</button>
 					</form>
@@ -88,7 +95,12 @@
 		</main>
 
 		<footer>
-			<p>©2026 - DynamiX</p>
+			<p>	©
+				<script>
+					document.write(new Date().getFullYear());
+				</script> 
+				- DynamiX
+			</p>
 			<a href="#top" id="back-to-top" aria-label="Back to top">
 				<img src="assets/arrow-up.svg" alt="Arrow up" aria-hidden="true" />
 			</a>

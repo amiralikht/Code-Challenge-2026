@@ -5,6 +5,7 @@
 	--orange-rgb: 247, 146, 51;
 	--white-hex: #ffffff;
 	--white-rgb: 255, 255, 255;
+	--red-hex: #e94b4b
 }
 *,
 *::before,
@@ -67,7 +68,7 @@ header div{
 }
 .menu-btn img {
 	width: auto;
-	height: auto;
+	height: auto;;
 }
 .menu-icon-close {
 	display: none;
@@ -76,7 +77,9 @@ header #menu {
 	flex-grow: 1;
 	margin-left: auto;
 	opacity: 0;
+	/* display: none; */
 	pointer-events: none;
+	transition: opacity 0.3s ease-in-out;
 	transition:
 		opacity 300ms ease,
 		transform 300ms ease;
@@ -84,6 +87,7 @@ header #menu {
 header #menu.visible {
   opacity: 1;
   pointer-events: auto;
+  display: block;
 }
 
 header #menu ul {
@@ -187,6 +191,7 @@ main section {
 	margin-top: 2em;
 }
 .content .width-container div:nth-child(2) img{
+	object-fit: cover;
 	border-radius: 24px;
 	-webkit-border-radius: 24px;
 	-moz-border-radius: 24px;
@@ -211,7 +216,7 @@ main section:nth-child(2) div.width-container .header-wrapper .content-container
 #contact-form {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 1.5em;
+	gap: 1.7em;
 	max-width: 500px;
 	margin: 3em auto;
 }
@@ -237,6 +242,13 @@ main section:nth-child(2) div.width-container .header-wrapper .content-container
 	outline: none;
 }
 
+#contact-form input.input-error{
+	border-color: var(--red-hex);
+}
+#contact-form input.input-error::placeholder{
+	color: var(--red-hex)
+	
+}
 #contact-form input::placeholder {
 	color: var(--dark-gray-hex);
 	opacity: 1;
@@ -257,7 +269,12 @@ main section:nth-child(2) div.width-container .header-wrapper .content-container
 	-ms-border-radius: 50px;
 	-o-border-radius: 50px;
 }
-
+#contact-form .form-status{
+	color: var(--red-hex);
+	text-align: center;
+	font-size: 12px;
+	/* margin: 0.2em 1em; */
+}
 footer {
 	padding: 20px;
 	border-radius: 8px;
@@ -290,11 +307,14 @@ footer a {
 	border-radius: 50%;
 	justify-content: center;
 	align-items: center;
-	display: none;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	-ms-border-radius: 50%;
-	-o-border-radius: 50%;
+	display: flex;
+	opacity: 0;
+	box-shadow: 0px 4px 16px 0px #00000040;
+	transition: opacity 0.3s ease-in-out;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	-moz-transition: opacity 0.3s ease-in-out;
+	-ms-transition: opacity 0.3s ease-in-out;
+	-o-transition: opacity 0.3s ease-in-out;
 }
 footer a img{
 	width: 16px;
@@ -302,7 +322,13 @@ footer a img{
 	filter: brightness(0) invert(1);
 	-webkit-filter: brightness(0) invert(1);
 }
+footer a.visible {
+	opacity: 1;
+	pointer-events: auto;
+	visibility: visible;
+  	transition: opacity 0.5s ease-in-out;
 
+}
 @media (max-width: 1000px) {
 	.width-container {
 		padding-inline: 2em;
@@ -315,26 +341,77 @@ footer a img{
 	}
 }
 @media screen and (max-width: 950px){
-	.content .width-container {
-    	grid-template-columns: 1fr;
-  	}
-	.content-container {
-    	font-size: 1em;
-  	}
-	.navigation.visible {
-		transform: translate(0, 0);
-	}
-	.navigation{
+	header #menu{
 		position: absolute;
 		top: 100%;
 		left: 0;
 		width: calc(100% - 20px);
 		transform: translate(0, -2em);
 	}
-	.navigation-list {
+	header #menu.visible {
+		transform: translate(0, 0);
+		background-color: var(--orange-hex);
+		width: 100%;
+		border-radius: .5em;
+		margin-top: .5em;
+}
+	header #menu.visible ul {
 		flex-direction: column;
-		align-items: flex-start;
 	}
+	header #menu.visible ul li{
+		margin: 2em 0;
+	}
+	header #menu.visible ul li a{
+		font-size: 22px;
+	}
+	.section-title {
+		font-size: 24px;
+	}
+	.content .width-container {
+    	grid-template-columns: 1fr;
+	}
+	.content-container {
+		font-size: 16px;
+	}
+	.content .width-container div:nth-child(2) img{
+		height: 354px;
+		width: 365px;
+		contain: cover;
+	}
+	main section:nth-child(2) div.width-container{
+		width: 100%;
+		text-align: start;
+		padding: .5em 1.2em;
+	}
+	main section:nth-child(2) div.width-container .header-wrapper{
+		flex-direction: column;
+		display: flex;
+		align-items: start;
+		justify-content: center;
+	}
+	main section:nth-child(2) div.width-container .header-wrapper .content-container{
+		padding-inline: 0;
+	}
+	#contact-form{
+		gap: 0;
+	}
+	#contact-form input{
+		margin-bottom: 1.5em;
+	}
+	#contact-form {
+		display: flex;
+		justify-content: start;
+		flex-direction: column;
+	}
+	#contact-form .form-status{
+		text-align: start;
+		margin-bottom: 1em;
+	}
+	footer a {
+        bottom: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+}
 }
 
 @media (max-width: 700px) {
