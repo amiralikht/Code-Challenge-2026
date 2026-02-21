@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const handleScroll = () => {
 			const atBottom =
 			window.innerHeight + window.scrollY >=
-			document.documentElement.scrollHeight - 2;
+			document.documentElement.scrollHeight - 20;
 
 			backToTop.classList.toggle("visible", atBottom);
 		};
